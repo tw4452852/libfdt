@@ -1,26 +1,9 @@
-#define memcpy c_memcpy
-void *c_memcpy(void *, const void *, unsigned long);
-
-#define memset c_memset
-void *c_memset(void *, int, unsigned long);
-
-#define memmove c_memmove
-void *c_memmove(void *, const void *, unsigned long);
-
-#define memcmp c_memcmp
-int c_memcmp(const void *, const void *, unsigned long);
-
-#define memchr c_memchr
-void *c_memchr(const void *, int, unsigned long);
-
-#define strlen c_strlen
-unsigned long c_strlen(const char *);
-
-#define strchr c_strchr
-char *c_strchr(const char *, int);
-
-#define strrchr c_strrchr
-char *c_strrchr(const char *, int);
-
-#define strnlen c_strnlen
-size_t c_strnlen(const char *, size_t);
+void *memcpy(void *, const void *, unsigned long);
+void *memset(void *, int, unsigned long);
+void *memmove(void *, const void *, unsigned long);
+int memcmp(const void *, const void *, unsigned long);
+void *memchr(const void *, int, unsigned long);
+unsigned long strlen(const char *);
+char *strchr(const char *, int);
+char *strrchr(const char *, int);
+size_t strnlen(const char *, size_t);

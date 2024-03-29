@@ -54,6 +54,11 @@ pub fn build(b: *std.Build) void {
             "string.h",
         },
     });
+    if (target.result.os.tag == .freestanding) {
+        lib.bundle_compiler_rt = true;
+    } else {
+        lib.linkLibC();
+    }
 
     b.installArtifact(lib);
 

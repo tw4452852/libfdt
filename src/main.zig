@@ -17,4 +17,5 @@ pub fn main() void {
     const a: u64 = 0xabcd;
     const b: u64 = 0x1234;
     std.debug.print("hi {x}, world {x}\n", .{ a, b });
+    _start();
 }
