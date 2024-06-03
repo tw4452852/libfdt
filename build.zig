@@ -7,7 +7,7 @@ pub fn build(b: *std.Build) void {
 
     const lib = b.addStaticLibrary(.{
         .name = "libfdt",
-        .root_source_file = .{ .path = "src/root.zig" },
+        .root_source_file = b.path("src/root.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -29,26 +29,20 @@ pub fn build(b: *std.Build) void {
             "fdt_check.c",
         },
     });
-    lib.addIncludePath(.{ .path = "src" });
+    lib.addIncludePath(b.path("src"));
     lib.addIncludePath(.{ .dependency = .{
         .dependency = dtc,
         .sub_path = "libfdt",
     } });
 
-    lib.installHeadersDirectoryOptions(.{
-        .source_dir = dtc.path("libfdt"),
-        .install_dir = .header,
-        .install_subdir = "",
+    lib.installHeadersDirectory(dtc.path("libfdt"), "", .{
         .include_extensions = &.{
             "libfdt.h",
             "fdt.h",
             "libfdt_env.h",
         },
     });
-    lib.installHeadersDirectoryOptions(.{
-        .source_dir = .{ .path = "src" },
-        .install_dir = .header,
-        .install_subdir = "",
+    lib.installHeadersDirectory(b.path("src"), "", .{
         .include_extensions = &.{
             "stdlib.h",
             "string.h",
@@ -64,7 +58,7 @@ pub fn build(b: *std.Build) void {
 
     const exe = b.addExecutable(.{
         .name = "sample",
-        .root_source_file = .{ .path = "src/main.zig" },
+        .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
