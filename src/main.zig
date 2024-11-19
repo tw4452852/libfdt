@@ -10,7 +10,7 @@ fn _start() callconv(.C) void {
 }
 
 comptime {
-    if (os == .freestanding) @export(_start, .{ .name = "_start" });
+    if (os == .freestanding) @export(&_start, .{ .name = "_start" });
 }
 
 pub fn main() void {
