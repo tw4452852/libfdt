@@ -1,14 +1,15 @@
 .{
-    .name = "libfdt",
-    .version = "1.7.2",
+    .name = .libfdt,
+    .version = "1.7.2-1",
 
     .dependencies = .{
         .dtc = .{
             .url = "https://github.com/dgibson/dtc/archive/refs/tags/v1.7.2.tar.gz",
-            .hash = "122072ab91afe13e095820733fd40d44fdf83cffb6703faf1fbc193557b11b8b09e4",
+            .hash = "N-V-__8AAMFODQByq5Gv4T4JWCBzP9QNRP34PP-2cD-vH7wZ",
         },
     },
     .paths = .{
         "",
     },
+    .fingerprint = 0xd15ae82292bb0d53,
 }
