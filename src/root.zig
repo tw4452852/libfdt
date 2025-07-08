@@ -1,7 +1,11 @@
 const std = @import("std");
 const mem = std.mem;
 
-export fn strlen(s: [*c]const u8) callconv(.C) usize {
+comptime {
+    @export(&strlen, .{ .name = "strlen", .linkage = .weak, .visibility = .default });
+}
+
+fn strlen(s: [*c]const u8) callconv(.C) usize {
     return std.mem.len(s);
 }
 export fn strrchr(s: [*c]const u8, target: u8) callconv(.C) [*c]const u8 {
